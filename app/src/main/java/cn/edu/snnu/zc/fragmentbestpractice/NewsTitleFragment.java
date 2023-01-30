@@ -19,8 +19,7 @@ import java.util.Random;
 
 public class NewsTitleFragment extends Fragment {
 
-    private static final String TAG = "ZCDEBUG";
-    private boolean isTwoPane;
+        private boolean isTwoPane;
 
     private List<News> getNews(){
         ArrayList<News> newsList = new ArrayList<>();
@@ -47,7 +46,7 @@ public class NewsTitleFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.news_title_frag, container, false);
-        RecyclerView newsTitleRecyclerView = (RecyclerView) view.findViewById(R.id.newsTitleRecyclerView);
+        RecyclerView newsTitleRecyclerView = (RecyclerView) view.findViewById(R.id.news_title_recycler_view);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         newsTitleRecyclerView.setLayoutManager(linearLayoutManager);
         NewsAdapter adapter = new NewsAdapter(getNews());
@@ -83,8 +82,6 @@ public class NewsTitleFragment extends Fragment {
             public ViewHolder(View view){
                 super(view);
                 newsTitleText= (TextView) view.findViewById(R.id.news_title);
-                Log.e(TAG, "view为:"+view);
-                Log.e(TAG, "newsTitleText为:"+newsTitleText);
             }
         }
         //    ViewHolder内部类结束
@@ -116,8 +113,6 @@ public class NewsTitleFragment extends Fragment {
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             News news = mNewsList.get(position);
-            Log.e(TAG, "holder为:"+holder);
-            Log.e(TAG, "holder.newsTitleText为:"+holder.newsTitleText);
             holder.newsTitleText.setText(news.getTitle());
 
         }

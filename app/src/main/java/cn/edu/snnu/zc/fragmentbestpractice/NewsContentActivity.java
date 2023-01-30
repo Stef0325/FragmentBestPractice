@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 public class NewsContentActivity extends AppCompatActivity {
 
@@ -16,8 +17,11 @@ public class NewsContentActivity extends AppCompatActivity {
         String newsTitle = getIntent().getStringExtra("news_title");
         String newsContent = getIntent().getStringExtra("news_content");
         NewsContentFragment newsContentFragment = (NewsContentFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.news_content);
+                .findFragmentById(R.id.news_content_fragment);
 //        刷新内容界面
+        Log.e("debug", "newContentFragment:"+newsContentFragment );
+        Log.e("debug", "newTitle:"+newsTitle.toString() );
+        Log.e("debug", "newContent:"+newsContent.toString() );
         newsContentFragment.refresh(newsTitle,newsContent);
     }
 
